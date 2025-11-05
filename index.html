@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gator Hoops</title>
+  <link rel="stylesheet" href="style.css" />
+  <meta name="theme-color" content="#0021A5" />
+</head>
+<body>
+  <!-- Topbar -->
+  <header class="topbar" role="banner">
+    <div class="topbar-inner">
+      <div class="brand"><span class="dot"></span><h1>Gator Hoops</h1></div>
+      <div class="controls">
+        <label class="meta" style="color:#eef">Team</label>
+        <select id="gender">
+          <option value="mens-college-basketball" selected>Men's</option>
+          <option value="womens-college-basketball">Women's</option>
+        </select>
+        <button id="refreshBtn" title="Refresh data">↻ Refresh</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Championship hero -->
+  <section class="hero" aria-label="2025 National Championship">
+    <div class="carousel">
+      <img id="heroImg" alt="Florida Gators — 2025 National Champions" />
+      <div class="shade"></div>
+      <div class="caption">
+        <div>
+          <div class="badge">2025 NATIONAL CHAMPIONS</div>
+          <div class="kicker">Florida 65 — Houston 63 · Alamodome</div>
+        </div>
+        <div class="car-ctrls">
+          <button id="prevBtn" class="pill gray" aria-label="Previous photo"><span class="pill-dot"></span>Prev</button>
+          <button id="nextBtn" class="pill gray" aria-label="Next photo"><span class="pill-dot"></span>Next</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tabs -->
+  <nav class="tabs" role="tablist" aria-label="Sections">
+    <button class="tab" role="tab" id="tab-schedule" aria-controls="panel-schedule" aria-selected="true">Schedule</button>
+    <button class="tab" role="tab" id="tab-roster" aria-controls="panel-roster" aria-selected="false">Roster</button>
+  </nav>
+
+  <!-- Content -->
+  <main>
+    <!-- Schedule -->
+    <section id="panel-schedule" class="section active" role="tabpanel" aria-labelledby="tab-schedule">
+      <!-- Smart Add-All button (platform-aware); desktop shows a small menu -->
+      <button id="addAllBtn" class="allcal-btn">Add All Games to Calendar</button>
+      <div id="allcal-menu" class="allcal-menu">
+        <div class="menu">
+          <a id="allcal-apple" href="#"> Apple/Outlook (.ics)</a>
+          <a id="allcal-google" href="https://calendar.google.com/calendar/u/0/r/settings/import" target="_blank" rel="noopener">Google Calendar (Import)</a>
+        </div>
+      </div>
+
+      <!-- Next game card gets injected here -->
+      <div id="nextGame" class="next-wrap"></div>
+
+      <!-- Full schedule list -->
+      <div id="scheduleList" class="grid"></div>
+    </section>
+
+    <!-- Roster -->
+    <section id="panel-roster" class="section" role="tabpanel" aria-labelledby="tab-roster">
+      <div id="rosterList" class="grid"></div>
+    </section>
+  </main>
+
+  <footer>
+    <small>Not affiliated with UF. Data from ESPN public JSON.</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
