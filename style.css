@@ -1,0 +1,93 @@
+:root{
+  --uf-blue:#0021A5;   /* official UF blue */
+  --uf-orange:#FA4616; /* official UF orange */
+  --card:#ffffff;
+  --ink:#1b1f25;
+  --muted:#6b7280;
+}
+
+/* Base */
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{font-family:system-ui,-apple-system,Inter,Segoe UI,Roboto,Arial,sans-serif;background:#f6f7fb;color:var(--ink)}
+
+/* Header */
+.topbar{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,var(--uf-blue) 0%, #0a2b8a 100%);color:#fff;border-bottom:1px solid rgba(255,255,255,.15)}
+.topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px}
+.brand{display:flex;align-items:center;gap:10px}
+.brand .dot{width:10px;height:10px;background:var(--uf-orange);border-radius:50%}
+.brand h1{margin:0;font-size:18px;letter-spacing:.3px}
+.controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+select,button{padding:8px 10px;border-radius:10px;border:1px solid #e5e7eb;background:#fff;color:#111;font:inherit;outline:none}
+button{cursor:pointer}
+button:active{transform:translateY(1px)}
+
+/* Hero carousel */
+.hero{position:relative;overflow:hidden;background:#0b0e16;color:#fff;border-bottom:1px solid rgba(255,255,255,.08)}
+.carousel{position:relative;aspect-ratio:16/9;max-height:44vh;min-height:200px;background:#0b0e16;display:grid;place-items:center}
+.carousel img{width:100%;height:100%;object-fit:cover}
+.carousel .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.45))}
+.carousel .caption{position:absolute;left:16px;right:16px;bottom:12px;font-weight:600;text-shadow:0 1px 3px rgba(0,0,0,.6);display:flex;justify-content:space-between;align-items:flex-end;gap:10px}
+.badge{display:inline-block;padding:4px 8px;border-radius:999px;font-size:12px;background:var(--uf-orange);color:#fff}
+.kicker{font-size:12px;opacity:.9}
+
+/* Tabs */
+.tabs{display:flex;background:#fff;border-bottom:1px solid #eceff4;position:sticky;top:56px;z-index:40}
+.tab{flex:1;padding:12px;border:0;background:#fff;border-bottom:2px solid transparent}
+.tab[aria-selected="true"]{border-bottom-color:var(--uf-orange);font-weight:700}
+
+/* Layout */
+main{padding:14px;max-width:980px;margin:0 auto}
+.section{display:none}
+.section.active{display:block}
+.grid{display:flex;flex-direction:column;gap:10px}
+
+/* Cards */
+.card{background:var(--card);border:1px solid #edf1f7;border-radius:14px;padding:12px;box-shadow:0 1px 2px rgba(20,23,28,.05)}
+.row{display:flex;align-items:center;gap:12px}
+.logo{width:44px;height:44px;border-radius:10px;background:#eef2f7;object-fit:cover}
+.meta{color:var(--muted);font-size:14px}
+.right{margin-left:auto;text-align:right}
+.score{font-weight:800}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:4px 8px;border-radius:999px;border:1px solid #eef2f7;font-size:12px;background:#fff}
+.pill-dot{width:8px;height:8px;border-radius:50%}
+.pill.green .pill-dot{background:#16a34a}
+.pill.gray  .pill-dot{background:#9ca3af}
+
+/* Roster */
+.head{width:56px;height:56px;border-radius:28px;background:#eef2f7;object-fit:cover}
+.statgrid{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-top:8px}
+.stat{background:#f7fafc;border:1px solid #edf2f7;border-radius:8px;padding:6px;text-align:center}
+.stat .t{font-size:11px;color:#6b7280}
+.stat .v{font-weight:700}
+
+/* Next Game */
+.next-wrap{margin:12px 0}
+.next-card{background:#fff;border:1px solid #edf1f7;border-radius:14px;padding:14px;box-shadow:0 1px 2px rgba(20,23,28,.05);display:flex;gap:12px;align-items:center}
+.next-left{display:flex;flex-direction:column;gap:6px;flex:1}
+.countdown{font-weight:800;font-size:18px;color:var(--uf-blue)}
+.next-actions{display:flex;gap:10px;flex-wrap:wrap}
+.btn{padding:8px 12px;border-radius:10px;border:1px solid #e5e7eb;background:#fff;cursor:pointer}
+.btn.primary{background:var(--uf-orange);color:#fff;border:0}
+.note{font-size:12px;color:#6b7280}
+.spinner{width:18px;height:18px;border-radius:50%;border:2px solid #e5e7eb;border-top-color:var(--uf-blue);animation:spin .9s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Per-game calendar menu */
+.cal-wrap{ position:relative; display:inline-block }
+.cal-btn{ padding:6px 10px; border-radius:10px; border:1px solid #e5e7eb; background:#fff; font:inherit; cursor:pointer }
+.cal-menu{ position:absolute; right:0; top:40px; background:#fff; border:1px solid #e5e7eb; border-radius:10px; box-shadow:0 6px 18px rgba(10,12,16,.12); min-width:220px; overflow:hidden; display:none; z-index:100 }
+.cal-menu a{ display:block; padding:10px 12px; text-decoration:none; color:#111; font-size:14px }
+.cal-menu a:hover{ background:#f7fafc }
+
+/* Add-ALL (smart) */
+.allcal-btn{ background:var(--uf-orange);color:#fff;border:0;padding:10px 16px;border-radius:10px;font:inherit;cursor:pointer;margin-bottom:14px;box-shadow:0 2px 5px rgba(0,0,0,.1) }
+.allcal-btn:active{transform:translateY(1px)}
+.allcal-menu{ position:relative; display:none; margin-bottom:10px; }
+.allcal-menu.open{ display:block; }
+.allcal-menu .menu{ position:absolute; left:0; top:44px; background:#fff; border:1px solid #e5e7eb; border-radius:10px; box-shadow:0 6px 18px rgba(10,12,16,.12); min-width:240px; overflow:hidden; z-index:100 }
+.allcal-menu a{ display:block; padding:10px 12px; text-decoration:none; color:#111; font-size:14px }
+.allcal-menu a:hover{ background:#f7fafc }
+
+/* Small screens */
+@media (max-width:480px){ .statgrid{grid-template-columns:repeat(3,1fr)} }
